@@ -1,0 +1,38 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+<h1>Reposições</h1>
+
+<table class="table">
+	<tbody>
+	{% for reposicao in reposicoes %}
+		<tr>
+			<td>
+				<p>Professor: {{ reposicao.professor.nome }}</p>
+				<p>Professor: {{ reposicao.professor_substituido.nome }}</p>
+				<p>Modalidade: {{ reposicao.modalidade.nome }}</p>
+				<p>Curso: {{ reposicao.curso.nome }}</p>
+				<p>Turma: {{ reposicao.turma.nome }}</p>
+				<p>Disciplina: {{ reposicao.disciplina }}</p>
+				<p>Disciplina Substituída: {{ reposicao.disciplina_substituida }}</p>
+				<p>Quantidade de aulas: {{ antecipacao.quantidade_aulas }}</p>
+				<p>Conteúdo: {{ reposicao.conteudo }}</p>
+				<p>Data da aula: {{ reposicao.data }}</p>
+				<p>Hora Início: {{ reposicao.data_hora_inicio }}</p>
+				<p>Hora Fim: {{ reposicao.data_hora_fim }}</p>
+			</td>
+	    <td>
+	    	<a href="{% url 'atualizar_reposicao' reposicao.id %}" class="btn btn-info">Atualizar</a>
+	    </td>
+	    <td>
+	    	<a href="{% url 'deletar_reposicao' reposicao.id %}" class="btn btn-danger">Deletar</a>
+	    </td>	
+	    </tr>    
+	{% endfor %}
+  	</tbody>
+</table>
+
+
+{% endblock %}
+

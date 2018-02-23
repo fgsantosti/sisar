@@ -1,0 +1,23 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<form action="{% url 'listar_por_professor_data_substituida'  %}" method="post">
+{% csrf_token %}
+	<label>Selecione a Professor</label><br>
+	<select name="idprofessor" class="custom-select">
+		{% for professor in listar_professores%}
+			<option value="{{professor.id}}">{{professor.nome}}</option>
+		{% endfor %}
+	</select>
+	<br>
+	<label>Data início</label>
+	<br>
+	<input type="date" name="dataini">
+	<br>
+	<label>Data Fim</label>
+	<br>
+	<input type="date" name="datafim">
+	<input type="submit" value="Filtrar" />
+</form>
+
+{% endblock %}

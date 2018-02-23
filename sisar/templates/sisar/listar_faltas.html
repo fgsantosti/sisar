@@ -1,0 +1,29 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+{% for falta in faltas %}
+	<div>
+		<table class="table">
+			<tr>
+				<td>
+					<p>Professor: {{ falta.professor.nome }}</p>
+					<p>Disciplina: {{ falta.disciplina }}</p>
+					<p>Quantidade de aulas: {{ falta.quantidade_aulas }}</p>
+					<p>Data da aula: {{ falta.data }}</p>
+					<p>Data da limite de Reposição: {{ falta.data_limite_para_reposicao }}</p>			
+				</td>
+				<td>
+					<a href="{% url 'atualizar_falta' falta.id %}" class="btn btn-info">Atualizar</a>
+				</td>
+				<td>
+					<a href="{% url 'deletar_falta' falta.id %}" class="btn btn-danger">Deletar</a>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+{% endfor %}
+
+{% endblock %}
+

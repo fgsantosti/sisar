@@ -1,0 +1,14 @@
+
+
+{% extends 'sisar/base.html' %}
+{% block content %}
+
+<h3>Buscar por Nome do Professor</h3>
+<br>
+    <form action="{% url 'listar_por_nome_professor'  %}" method="post">
+    {% csrf_token %}
+            <label for="usr">Nome do Professor:</label>
+            <input type="text" class="form-control" name="nome">
+    	<input type="submit" value="Buscar" />
+    </form>
+{% endblock %}

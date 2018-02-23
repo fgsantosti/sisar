@@ -1,0 +1,151 @@
+
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<h2>Cadastrar Reposição</h2>
+
+<form action="{%url 'cadastrar_reposicao'%}" method="POST">
+{% csrf_token %}
+<form>
+
+<div class="col-auto my-1">
+
+<table class="table">
+	<tbody>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Professor</label></th>
+		<td>
+			<select name='professor' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha o Professor</option>
+			{% for professor in professores %}
+				<option value="{{professor.id}}">{{professor.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Professor Substituído</label></th>
+		<td>
+			<select name='professor_substituido' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha o Professor Substituído</option>
+			{% for professor in professores %}
+				<option value="{{professor.id}}">{{professor.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Modalidade</label></th>
+		<td>
+			<select name='modalidade' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Modalidade</option>
+			{% for modalidade in modalidades %}
+				<option value="{{modalidade.id}}">{{modalidade.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label></th>
+		<td>
+			<select name='curso' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Curso</option>
+			{% for curso in cursos %}
+				<option value="{{curso.id}}">{{curso.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Disciplina</label></th>
+		<td>
+			<select name='disciplina' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Disciplina</option>
+			{% for disciplina in disciplinas %}
+				<option value="{{disciplina.id}}">{{disciplina.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Disciplina Substituída</label></th>
+		<td>
+			<select name='disciplina_substituida' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Disciplina Substituída</option>
+			{% for disciplina in disciplinas %}
+				<option value="{{disciplina.id}}">{{disciplina.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Turma</label></th>
+		<td>
+			<select name='turma' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Turma</option>
+			{% for turma in turmas %}
+				<option value="{{turma.id}}">{{turma.nome}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Servidor</label></th>
+		<td>
+			<select name='servidor' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+			<option selected>Escolha a Servidor</option>
+			{% for user in users %}
+				<option value="{{user.id}}">{{user.username}}</option>
+			{%endfor%}
+	  		</select>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Quantidade de Aulas</label></th>
+		<td>
+			<input type="number" name="quantidade_aulas">
+		</td>
+	</tr>
+	<tr>
+		<th>Conteúdo</th>
+		<td><textarea name="conteudo" cols="60" rows="12"></textarea></td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Data</label></th>
+		<td>
+			<input type="date" name="data" >
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Horário Início</label></th>
+		<td>
+			<input type="time" name="data_hora_inicio">
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> <label class="mr-sm-2" for="inlineFormCustomSelect">Horário Fim</label></th>
+		<td>
+			<input type="time" name="data_hora_fim">
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input class="btn btn-lg btn-danger" type="reset" value="Limpar" />
+		</td>
+		<td>
+			<input class="btn btn-lg btn-primary" type="submit" value="Cadastrar" />
+		</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+</form>
+{% endblock %}

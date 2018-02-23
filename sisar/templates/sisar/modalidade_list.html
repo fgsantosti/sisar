@@ -1,0 +1,20 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+<h1>Modalidade de Ensino</h1>
+
+<table class="table">
+	<tbody>
+	{% for modalidade in object_list %}
+		<tr>
+	      <td>{{modalidade.nome}}</td>
+	      <td><a href="{% url 'modalidade_update' modalidade.id %}" class="btn btn-info">Atualizar</a></td>
+	      <td><a href="{% url 'modalidade_delete' modalidade.id %}" class="btn btn-danger">Deletar</a></td>
+	    </tr>
+	{% endfor %}
+  	</tbody>
+</table>
+
+
+{% endblock %}

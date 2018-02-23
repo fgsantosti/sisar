@@ -1,0 +1,41 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<h2>Lista todas as Antecipações </h2>
+{% for listar in listar_antecipacao %}
+		<div>		
+			<p>Professor: {{ listar.professor.nome }}</p>			 
+			<p>Professor Substituido: {{ listar.professor_substituido.nome }}</p>
+			<p>Disciplina: {{ listar.disciplina }}</p>
+			<p>Disciplina: {{ listar.disciplina_substituida }}</p>
+			<p>Quantidade de aulas: {{ listar.quantidade_aulas }}</p>		
+			<p>Data da aula: {{ listar.data }}</p>
+			<br>		
+		</div>
+{% endfor %}
+
+<h2>Lista todas as Reposições </h2>
+{% for listar in listar_reposicao %}
+		<div>		
+			<p>Professor: {{ listar.professor.nome }}</p>			 
+			<p>Professor Substituido: {{ listar.professor_substituido.nome }}</p>
+			<p>Disciplina: {{ listar.disciplina }}</p>
+			<p>Disciplina: {{ listar.disciplina_substituida }}</p>
+			<p>Quantidade de aulas: {{ listar.quantidade_aulas }}</p>		
+			<p>Data da aula: {{ listar.data }}</p>
+			<br>	
+		</div>
+{% endfor %}
+
+<h2>Lista todas as Faltas</h2>
+{% for listar in listar_faltas %}
+		<div>		
+			<p>Professor: {{ listar.professor.nome }}</p>			 
+			<p>Disciplina: {{ listar.disciplina }}</p>
+			<p>Quantidade de aulas: {{ listar.quantidade_aulas }}</p>		
+			<p>Data da aula: {{ listar.data }}</p>	
+			<br>
+		</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+<h1>Antecipações</h1>
+
+<table class="table">
+	<tbody>
+	{% for antecipacao in antecipacoes %}
+		<tr>
+			<td>
+				<p>Professor: {{ antecipacao.professor.nome }}</p>
+				<p>Professor: {{ antecipacao.professor_substituido.nome }}</p>
+				<p>Modalidade: {{ antecipacao.modalidade.nome }}</p>
+				<p>Curso: {{ antecipacao.curso.nome }}</p>
+				<p>Turma: {{ antecipacao.turma.nome }}</p>
+				<p>Disciplina: {{ antecipacao.disciplina }}</p>
+				<p>Disciplina Substituída: {{ antecipacao.disciplina_substituida }}</p>
+				<p>Quantidade de aulas: {{ antecipacao.quantidade_aulas }}</p>
+				<p>Conteúdo: {{ antecipacao.conteudo }}</p>
+				<p>Data da aula: {{ antecipacao.data }}</p>
+				<p>Hora Início: {{ antecipacao.data_hora_inicio }}</p>
+				<p>Hora Fim: {{ antecipacao.data_hora_fim }}</p>
+			</td>
+	    <td>
+	    	<a href="{% url 'atualizar_antecipacao' antecipacao.id %}" class="btn btn-info">Atualizar</a>
+	    </td>
+	    <td>
+	    	<a href="{% url 'deletar_antecipacao' antecipacao.id %}" class="btn btn-danger">Deletar</a>
+	    </td>	
+	    </tr>    
+	{% endfor %}
+  	</tbody>
+</table>
+
+
+{% endblock %}
+

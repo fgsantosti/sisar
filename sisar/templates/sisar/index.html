@@ -1,0 +1,86 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+	<h2>Seja bem vindo ao SisAR CACOR 0.1 </h2>
+	<br>
+	<table class="table table-sm">
+	<tbody>
+	<tr>
+		<tH>BUSCAS</th>
+		<th>CADASTROS</th>
+	</tr>
+	<tr>
+		<td>
+			<ul>
+				<a href="{% url 'buscar_por_professor_disciplina'  %}">
+					<li><h3>BUSCAR POR PROFESSOR E DISCIPLINA</h3></li>
+				</a>
+				<br>
+				<a href="{% url 'buscar_por_professor'  %}">
+					<li><h3>BUSCAR POR PROFESSOR</h3></li>
+				</a>
+				<br>
+				<a href="{% url 'buscar_por_professor_data'  %}">
+					<li><h3>BUSCAR POR PROFESSOR E DATA</h3></li>
+				</a>
+				<br>
+				<a href="{% url 'buscar_por_data'  %}">
+					<li><h3>BUSCAR POR DATA</h3></li>
+				</a>
+				<br>
+				<a href="{% url 'buscar_por_falta'  %}">
+					<li><h3>BUSCAR POR FALTA</h3></li>
+				</a>
+			</ul>
+		</td>		
+		<td>
+			<ul>
+				<a href="{% url 'cadastrar_falta'  %}">
+					<li><h3>CADASTRAR FALTA DO PROFESSOR</h3></li>
+				</a>
+			</ul>
+			<ul>
+				<a href="{% url 'nova_antecipacao'  %}">
+					<li><h3>CADASTRAR ANTECIPAÇÃO DO PROFESSOR</h3></li>
+				</a>
+			</ul>
+			<ul>
+				<a href="{% url 'nova_reposicao'  %}">
+					<li><h3>CADASTRAR REPOSICAO DO PROFESSOR</h3></li>
+				</a>
+			</ul>			
+			<ul>
+				<a href="{% url 'professor_add'  %}">
+					<li><h3>CADASTRAR NOVO PROFESSOR</h3></li>
+				</a>
+			</ul>			
+			<ul>
+				<a href="{% url 'disciplina_add'  %}">
+					<li><h3>CADASTRAR NOVO DISCIPLINA</h3></li>
+				</a>
+			</ul>			
+			<ul>
+				<a href="{% url 'curso_add'  %}">
+					<li><h3>CADASTRAR NOVO CURSO</h3></li>
+				</a>
+			</ul>			
+			<ul>
+				<a href="{% url 'turma_add'  %}">
+					<li><h3>CADASTRAR NOVA TURMA</h3></li>
+				</a>
+			</ul>			
+			<ul>
+				<a href="{% url 'modalidade_add'  %}">
+					<li><h3>CADASTRAR NOVA MODALIDADE</h3></li>
+				</a>
+			</ul>			
+
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+
+{% endblock %}
+

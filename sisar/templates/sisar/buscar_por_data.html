@@ -1,0 +1,20 @@
+
+
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<table class="table table-sm">
+
+<form action="{% url 'listar_por_data'  %}" method="post">
+{% csrf_token %}
+	<tr>
+		<th>Data início</th>
+		<td><input type="date" name="dataini"></td>	
+		<th>Data Fim</th>
+		<td><input type="date" name="datafim"><td>
+		<td><input class="btn btn-lg btn-info" type="submit" value="Filtrar" /></td>
+	</tr>
+	
+</form>
+</table>
+{% endblock %}

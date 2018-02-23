@@ -1,0 +1,22 @@
+
+
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<table class="table table-sm">
+	<form action="{% url 'listar_por_professor'  %}" method="post">
+	{% csrf_token %}
+		<tr>
+			<th>Selecione a Professor</th>
+			<td>
+				<select name="idprofessor" class="custom-select">
+					{% for professor in listar_professores%}
+					  	<option value="{{professor.id}}">{{professor.nome}}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td><input  class="btn btn-lg btn-info" type="submit" value="Filtrar" /></td>
+		</tr>
+	</form>
+</table>
+{% endblock %}
