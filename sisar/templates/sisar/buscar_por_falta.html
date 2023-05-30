@@ -1,0 +1,76 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<table class="table table-sm">
+
+<form action="{% url 'listar_por_falta'  %}" method="post">
+{% csrf_token %}
+<h3>Buscar Faltas</h3>
+    <tr>
+		<th>Selecione a Modalidade</th>
+		<td>
+			<select name="idmodalidade" class="custom-select">
+				<option value="">Selecione um Modalidade</option>
+				{% for modalidade in listar_modalidade%}
+				  	<option value="{{modalidade.id}}">{{modalidade.nome}}</option>
+				{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Selecione a Curso</th>
+		<td>
+			<select name="idcurso" class="custom-select">
+				<option value="">Selecione um Curso</option>
+				{% for curso in listar_curso%}
+				  	<option value="{{curso.id}}">{{curso.nome}}</option>
+				{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Selecione a Professor</th>
+		<td>
+			
+			<select name="idprofessor" class="custom-select">
+				<option value="">Selecione um professor</option>
+				{% for professor in listar_professores%}
+				  	<option value="{{professor.id}}">{{professor.nome}}</option>
+				{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Selecione a Disciplina</th>
+		<td>
+			<select name="iddisciplina" class="custom-select">
+				<option value="">Selecione uma Disciplina</option>
+				{% for disciplina in listar_disciplinas%}
+				  	<option value="{{disciplina.id}}">{{disciplina.nome}}</option>
+				{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Selecione a Turma</th>
+		<td>
+			<select name="idturma" class="custom-select">
+				<option value="">Selecione a Turma</option>
+				{% for turma in listar_turma%}
+				  	<option value="{{turma.id}}">{{turma.nome}}</option>
+				{% endfor %}
+			</select>
+		</td>
+		
+	</tr>
+    <tr>
+		<th>Data início</th>
+		<td><input type="date" name="dataini"></td>	
+		<th>Data Fim</th>
+		<td><input type="date" name="datafim"><td>
+	</tr>
+    <td><input class="btn btn-lg btn-info" type="submit" value="Filtrar" /></td>
+
+</form>
+</table>
+{% endblock %}

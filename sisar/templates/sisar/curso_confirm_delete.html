@@ -1,0 +1,17 @@
+
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+	{% csrf_token %}
+	<table class="table">
+		<p>Você deseja realmente deletar: "{{ object }}"?</p>	
+	</table>
+	
+	<input class="btn btn-lg btn-danger" type="submit" value="Sim" />
+	<a href="{% url 'curso_list'%}" class="btn btn-lg btn-info">Não</a>
+</form>
+
+
+{% endblock %}

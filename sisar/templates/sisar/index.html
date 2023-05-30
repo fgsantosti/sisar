@@ -1,0 +1,46 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<br><br>
+  <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Antecipação de Aula</h5>
+          <p class="card-text">Realize busca por antecipações realizadas de forma personalizada ou geral.</p>
+          <a href="{% url 'buscar_por_antecipacao'%}" class="btn btn-primary">Buscar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Reposição de Aula</h5>
+          <p class="card-text">Realize busca por reposições realizadas de forma personalizada ou geral.</p>
+          <a href="{% url 'buscar_por_reposicao'%}" class="btn btn-primary">Buscar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Faltas por Professor</h5>
+          <p class="card-text">Realize busca de faltas de professores de forma personalizada ou geral.</p>
+          <a href="{% url 'buscar_por_falta'%}" class="btn btn-primary">Buscar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Busca Geral</h5>
+          <p class="card-text">Realize busca de antecipação, reposição, e quantidade de faltas por professor.</p>
+          <a href="{% url 'buscar_tudo'%}" class="btn btn-primary">Buscar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

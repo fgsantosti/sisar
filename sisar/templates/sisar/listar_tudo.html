@@ -1,0 +1,108 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<br><br><br>
+<h1>Listar todas as Antecipações</h1>
+<table class="table">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">Professor</th>
+		<th scope="col">Professor Substituido</th>
+		<th scope="col">Disciplina</th>
+		<th scope="col">Disciplina Substituida</th>
+		<th scope="col">Quantidade de aulas</th>
+		<th scope="col">Data da aula</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for listar in listar_antecipacao %}
+			<tr>
+				<th scope="row"></th>
+				<td>{{ listar.professor.nome }}</td>
+				<td>{{ listar.professor_substituido.nome }}</td>
+				<td>{{ listar.disciplina }}</td>
+				<td>{{ listar.disciplina_substituida }}</td>
+				<td>{{ listar.quantidade_aulas }}</td>
+				<td>{{ listar.data }}</td>
+			</tr>
+	  {% endfor %}
+	</tbody>
+</table>
+<br><br><br>
+<h1>Listar todas as Reposições</h1>
+<table class="table">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">Professor</th>
+		<th scope="col">Professor Substituido</th>
+		<th scope="col">Disciplina</th>
+		<th scope="col">Disciplina Substituida</th>
+		<th scope="col">Quantidade de aulas</th>
+		<th scope="col">Data da aula</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for listar in listar_reposicao %}
+			<tr>
+				<th scope="row"></th>
+				<td>{{ listar.professor.nome }}</td>
+				<td>{{ listar.professor_substituido.nome }}</td>
+				<td>{{ listar.disciplina }}</td>
+				<td>{{ listar.disciplina_substituida }}</td>
+				<td>{{ listar.quantidade_aulas }}</td>
+				<td>{{ listar.data }}</td>
+			</tr>
+	  {% endfor %}
+	</tbody>
+</table>
+<br><br><br>
+
+<h1>Listar todas as Faltas</h1>
+<table class="table">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">Professor</th>
+		<th scope="col">Disciplina</th>
+		<th scope="col">Quantidade de aulas</th>
+		<th scope="col">Data da aula</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for listar in listar_faltas %}
+			<tr>
+				<th scope="row"></th>
+				<td>{{ listar.professor.nome }}</td>
+				<td>{{ listar.disciplina }}</td>
+				<td>{{ listar.quantidade_aulas }}</td>
+				<td>{{ listar.data }}</td>
+			</tr>
+	  {% endfor %}
+	</tbody>
+</table>
+
+
+<br><br><br>
+<h1>Listar todas as Faltas por professor</h1>
+<table class="table">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">Professor</th>
+		<th scope="col">Quantidade de Faltas</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for listar in listar_faltas_professor %}
+			<tr>
+				<th scope="row"></th>
+				<td>{{ listar.professor__nome }}</td>
+				<td>{{ listar.total }}</td>
+			</tr>
+	  {% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'sisar/base.html' %}
+
+{% block content %}
+<h1>Listar todas as Reposições</h1>
+<table class="table">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">Professor</th>
+		<th scope="col">Professor Substituido</th>
+		<th scope="col">Disciplina</th>
+		<th scope="col">Disciplina Substituida</th>
+		<th scope="col">Quantidade de aulas</th>
+		<th scope="col">Data da aula</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for listar in listar_reposicao %}
+			<tr>
+				<th scope="row"></th>
+				<td>{{ listar.professor.nome }}</td>
+				<td>{{ listar.professor_substituido.nome }}</td>
+				<td>{{ listar.disciplina }}</td>
+				<td>{{ listar.disciplina_substituida }}</td>
+				<td>{{ listar.quantidade_aulas }}</td>
+				<td>{{ listar.data }}</td>
+			</tr>
+	  {% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock %}
