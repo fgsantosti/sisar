@@ -82,12 +82,6 @@ Ative o ambiente virtual
 . venv/bin/activate
 ```
 
-Instalar o framework Django:
-
-```python
-pip install django
-```
-
 Caso queira desativar o ambiente virtual, na pasta
 
 ```python
