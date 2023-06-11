@@ -28,14 +28,14 @@ class Professor(models.Model):
 	def __str__(self):
 		return self.nome
 
-	def save(self, *args, **kwargs):
+'''	def save(self, *args, **kwargs):
 		#self.nome = self.nome.upper()
 		send_mail(f'Email para professor {self.nome}', 
 		'Esse é um email do SisAr campus CACOR', 
 		'fgsantos.ti@gmail.com',
 		['felipe.santos@ifpi.edu.br'])
 		super().save(*args, **kwargs)  # Call the "real" save() method.
-
+'''
 
 class Disciplina(models.Model):
 	"""docstring for Disciplina"""
@@ -72,7 +72,7 @@ class Falta(models.Model):
 
 	def save(self, *args, **kwargs):
 		#self.nome = self.nome.upper()
-		subject, from_email, to = f'Email para professor {self.professor.nome}', "fgsantos.ti@gmail.com'", "felipe.santos@ifpi.edu.br"
+		subject, from_email, to = f'Email para professor {self.professor.nome}', "fgsantos.ti@gmail.com'", {self.professor.email}
 		text_content = f'Email para professor {self.professor.nome}'
 		data = datetime.date.today()
 		ano = data.year

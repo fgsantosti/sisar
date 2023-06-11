@@ -112,7 +112,6 @@ python manage.py migrate
 
 ## Povoando o banco de dados 
 
-
 ```python
 python povoando_banco.py
 ```
