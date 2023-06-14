@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.core.mail import send_mail
 import datetime
 
+email_coordenacao = 'cd.cacor@ifpi.edu.br'
+
 # Create your models here.
 class Modalidade(models.Model):
 	nome = models.CharField(max_length=200)
@@ -27,15 +29,6 @@ class Professor(models.Model):
 
 	def __str__(self):
 		return self.nome
-
-'''	def save(self, *args, **kwargs):
-		#self.nome = self.nome.upper()
-		send_mail(f'Email para professor {self.nome}', 
-		'Esse é um email do SisAr campus CACOR', 
-		'fgsantos.ti@gmail.com',
-		['felipe.santos@ifpi.edu.br'])
-		super().save(*args, **kwargs)  # Call the "real" save() method.
-'''
 
 class Disciplina(models.Model):
 	"""docstring for Disciplina"""
@@ -70,16 +63,19 @@ class Falta(models.Model):
 		return self.professor.nome
 	datetime.date.today()
 
+
 	def save(self, *args, **kwargs):
-		#self.nome = self.nome.upper()
-		subject, from_email, to = f'Email para professor {self.professor.nome}', "fgsantos.ti@gmail.com'", {self.professor.email}
-		text_content = f'Email para professor {self.professor.nome}'
 		data = datetime.date.today()
 		ano = data.year
 		mes = data.month
 		dia = data.day
-		html_content = f'<p>Esse é um email do SisAr campus CACOR</p> <p>Olá professor {self.professor.nome},</p><p>Foram adicionadas {self.quantidade_aulas} faltas no dia {dia}/{mes}/{ano}</p><p>No {self.curso}</p><p>Na turma {self.turma}</p><p>Na disciplina {self.disciplina}</p><br> <br> <p>Atenciosamente, </p> <br> <p> Coordenação de Disciplina </p>'
-		send_mail(subject, text_content, from_email, [to], html_message=html_content) 
+		html_content = f'<p>Esse é um e-mail do SisAR campus CACOR</p> <p>Olá professor {self.professor.nome},</p><p>Foram adicionadas {self.quantidade_aulas} ausência(s) no dia {dia}/{mes}/{ano}</p><p>No {self.curso}</p><p>Na turma {self.turma}</p><p>Na disciplina {self.disciplina}</p><br> <br> <p>Atenciosamente, </p> <br> <p> Coordenação de Disciplina </p>'
+		
+		send_mail(f'SisAR: Notificação professor {self.professor.nome}', 
+		'Esse é um email do SisAr campus CACOR', 
+		email_coordenacao,
+		[self.professor.email], html_message=html_content)
+		
 		super().save(*args, **kwargs)  # Call the "real" save() method.
 
 class Antecipacao(models.Model):
